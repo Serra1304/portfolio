@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+        .container {
+            width: 50rem;
+            margin: 2rem auto;
+            background: linear-gradient(to bottom right, #282c34, #4ec3e0);
+            border-radius: 2rem;
+            border: 2px solid #4ec3e0;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        img {
+            width: 30rem;
+            height: 6rem;
+            padding: 2rem;
+        }
+
+        .text {
+
+            text-align: left;
+            background: white;
+            border-radius: 2rem;
+            border: 2px solid #4ec3e0;
+            margin: auto;
+            margin-top: 2rem;
+            padding: 1rem;
+            width: 30rem;
+        }
+
+        .message {
+            font-size: small;
+            color: white;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+<table class="container">
+  <tr>
+    <td>
+      <img src="cid:logo" alt="Logo">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="text">
+        <h2>Nueva solicitud de contacto</h2>
+        <p><b>Nombre: </b><span th:text="${username}">Name</span></p>
+        <p><b>Email: </b><span th:text="${useremail}">Email</span></p>
+        <p><b>Compañia: </b><span th:text="${companyname}">Company</span></p>
+        <p><b>Mensaje: </b><span th:text="${message}">Message</span></p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="message">
+      Este mensaje ha sido autogenerado y no está monitoreado para respuesta, por favor no responda a este email.
+    </td>
+  </tr>
+</table>
+</body>
+</html>

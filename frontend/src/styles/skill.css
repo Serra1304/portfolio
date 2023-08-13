@@ -1,0 +1,29 @@
+.container-skill {
+    flex-wrap: wrap;
+    max-width: 80%;
+}
+
+.skillImage {
+    max-width: 10rem;
+    max-height: 10rem;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 767px) {
+    .skillImage {
+        margin: 3rem
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width:1023px) {
+    .skillImage {
+        margin: 4rem
+    }
+  }
+  
+  @media (min-width: 1023px) {
+    .skillImage {
+        margin: 5rem
+    }
+  }

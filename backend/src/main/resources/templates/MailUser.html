@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Correo de Bienvenida</title>
+    <style>
+        .container {
+            width: 50rem;
+            margin: 2rem auto;
+            background: linear-gradient(to bottom right, #282c34, #4ec3e0);
+            border-radius: 2rem;
+            border: 2px solid #4ec3e0;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        img {
+            width: 30rem;
+            height: 6rem;
+            padding: 2rem;
+        }
+
+        .text {
+            text-align: left;
+            font-size: 1.3rem;
+            background: white;
+            border-radius: 2rem;
+            border: 2px solid #4ec3e0;
+            margin: auto;
+            margin-top: 2rem;
+            padding: 1rem;
+            width: 30rem;
+        }
+
+        .message {
+            font-size: small;
+            color: white;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+<table class="container">
+    <tr>
+        <td>
+            <img src="cid:logo" alt="Logo">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="text">
+                <p>Hola <span th:text="${username}">Nombre</span>!</p>
+                <p>Gracias por ponerte en contacto, tu mensaje ha sido recibido con éxito y en breve me pondré en
+                    contacto contigo.</p>
+                <p>Un saludo.</p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="message">
+            Este mensaje ha sido autogenerado y no está monitoreado para respuesta, por favor no responda a este email.
+        </td>
+    </tr>
+</table>
+</body>
+
+</html>
