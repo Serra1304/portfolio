@@ -18,6 +18,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 /**
  * Configuración de seguridad para la aplicación Spring Boot.
@@ -33,8 +36,17 @@ public class SecurityConfig{
     @Value("${SECURITY_SECURED_ROUTES}")
     private String securedRoutes;
 
+    @Value("${CORS_ORIGIN}")
+    private String corsOrigin;
+
+    @Value("${CORS_METHOD}")
+    private String corsMethod;
+
+    @Value("${CORS_HEADER}")
+    private String corsHeader;
+
     @Autowired
-    UserDetailsServiceImpl userDetailsService;
+    private UserDetailsServiceImpl userDetailsService;
 
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
@@ -82,6 +94,21 @@ public class SecurityConfig{
     }
 
     /**
+     * Configuración de filtro CORS para permitir peticiones desde orígenes, métodos y cabeceras específicos.
+     * @return Filtro CORS configurado.
+     */
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.addAllowedOrigin(corsOrigin);
+        config.addAllowedMethod(corsMethod);
+        config.addAllowedHeader(corsHeader);
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
+    }
+
+    /**
      * Configura la cadena de filtros de seguridad para las solicitudes HTTP.
      * @param http Configuración de seguridad HTTP.
      * @return Cadena de filtros de seguridad.
@@ -97,6 +124,7 @@ public class SecurityConfig{
                         .anyRequest().authenticated()
                 );
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilter(corsFilter());
 
         return http.build();
     }
