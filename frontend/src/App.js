@@ -3,14 +3,14 @@ import './styles/menu.css';
 import BarMenu from './containers/barMenu';
 import AboutMe from './containers/aboutMe';
 import Skill from './containers/skill';
-import Proyect from './containers/proyectList';
+import Project from './containers/ProjectList';
 import Certificates from './containers/certificates';
 import Contact from './containers/contact';
 
 function App() {
   const aboutMeRef = useRef(null);
   const skillRef = useRef(null);
-  const proyectsRef = useRef(null);
+  const projectsRef = useRef(null);
   const certificatesRef = useRef(null);
   const contactRef = useRef(null);
 
@@ -28,10 +28,10 @@ function App() {
 
   return (
     <div>
-        <BarMenu aboutMeRef={aboutMeRef} skillRef={skillRef} proyectsRef={proyectsRef} certificatesRef={certificatesRef} contactRef={contactRef} />
+        <BarMenu aboutMeRef={aboutMeRef} skillRef={skillRef} proyectsRef={projectsRef} certificatesRef={certificatesRef} contactRef={contactRef} />
         <AboutMe contactRef={contactRef} ref={aboutMeRef}/>
         <Skill ref={skillRef} />
-        <Proyect ref={proyectsRef} />
+        <Project ref={projectsRef} />
         <Certificates ref={certificatesRef} />
         <Contact ref={contactRef} />
     </div>
