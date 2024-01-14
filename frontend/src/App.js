@@ -1,39 +1,30 @@
-import React, { useRef, useEffect } from 'react';
-import './styles/menu.css';
-import BarMenu from './containers/barMenu';
-import AboutMe from './containers/aboutMe';
-import Skill from './containers/skill';
-import Project from './containers/ProjectList';
-import Certificates from './containers/certificates';
-import Contact from './containers/contact';
+import React, { useEffect, useState } from 'react';
+import './styles/app.css';
+import Intro from './components/Intro'
+import Home from './containers/Home';
 
 function App() {
-  const aboutMeRef = useRef(null);
-  const skillRef = useRef(null);
-  const projectsRef = useRef(null);
-  const certificatesRef = useRef(null);
-  const contactRef = useRef(null);
+  const [cargaFinalizada, setCargaFinalizada] = useState(false);
+  const [introFinished, setIntroFinished] = useState(false);
+
+  const intro = (introFinished) => {
+    setIntroFinished(introFinished);
+    document.body.style.overflowY = 'auto';
+  }
 
   useEffect(() => {
-    const scrollToComponent = (ref) => {
-      ref?.current?.scrollIntoView({ behavior: 'smooth' });
-    };
+    // Simulación de carga de la app
+    const tiempoCarga = setTimeout(() => {
+      setCargaFinalizada(true); // Indica que la carga ha finalizado
+    }, 10000);
 
-    window.scrollToComponent = scrollToComponent;
-
-    return () => {
-      delete window.scrollToComponent;
-    };
+    return () => clearTimeout(tiempoCarga);
   }, []);
 
   return (
     <div>
-        <BarMenu aboutMeRef={aboutMeRef} skillRef={skillRef} proyectsRef={projectsRef} certificatesRef={certificatesRef} contactRef={contactRef} />
-        <AboutMe contactRef={contactRef} ref={aboutMeRef}/>
-        <Skill ref={skillRef} />
-        <Project ref={projectsRef} />
-        <Certificates ref={certificatesRef} />
-        <Contact ref={contactRef} />
+        {introFinished ? '' : <Intro loadingFinished={cargaFinalizada} introFinished={intro}/>}
+        <Home />
     </div>
   );
 }

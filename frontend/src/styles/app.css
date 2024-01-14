@@ -1,5 +1,6 @@
 body {
 	color: whitesmoke;
+    overflow-y: hidden;
 }
 
 button {
@@ -65,4 +66,14 @@ button:active {
 }
   
 @media (min-width: 1023px) {
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: red 3px solid;
+    width: 100vw;
+    height: 100vh;
+    background-color: #282c34;
 }

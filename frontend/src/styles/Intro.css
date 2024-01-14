@@ -1,0 +1,219 @@
+
+/********** Configuracion de los contenedores **********/
+
+/* Contenedor principal de la intro.  */
+.container-intro {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-Color: #282c34;
+    width: 100vw;
+    height: 100vh;
+    z-Index: 1000;
+}
+
+/* Contenedor principal del logo. */
+.container-logo {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Subcontenedor del logo */
+.subcontainer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 1rem;
+    gap: 0.5rem;
+}
+
+
+/********** Configuracion de las imagenes **********/
+
+/* Propiedades del logoG */
+.logoG {
+    width: 6rem;
+    height: 6rem;
+}
+
+/* Propiedades del logoDivisor */
+.logoDivisor {
+    height: 6rem;
+}
+
+/* Propiedades del logoGtorres */
+.logoGtorres {
+    width: 20.6rem;
+    height: 4rem;
+}
+
+/* Despliegue de logoDeveloper. */
+.logoDeveloper {
+    width: 20.6rem;
+}
+
+
+/********** Configuracion de las distintas entradas de las imagenes **********/
+
+/* Despliegue de logoG. */
+.display-logoG {
+    width: 0rem;
+    height: 6rem;
+    animation: curtain-logo1 1s forwards;
+    animation-delay: 3.5s;
+    overflow: hidden;
+}
+
+/* Despliegue de logoDivisor. */
+.display-logoDivisor {
+    width: 0.2rem;
+    min-width: 0.2rem;
+    animation: intermittent 1s 3;
+    animation-delay: 0.5s;
+    overflow: hidden;
+}
+
+/* Despliegue de logoGtorres. */
+.display-logoGtorres {
+    width: 0rem;
+    height: 4rem;
+    animation: curtain-logo2 2s forwards;
+    animation-delay: 5s;
+    overflow: hidden;
+}
+
+/* Despliegue de logoDeveloper. */
+.display-logoDeveloper {
+    width: 0px;
+    animation: curtain-logo2 1s forwards;
+    animation-delay: 7s;
+    overflow: hidden;
+}
+
+
+/********** Configuracion de las distintas salidas de las imagenes **********/
+
+/* Segunda fase de ocultacion de la intro(logoG). */
+.out-intro1 {
+    animation: out-logo1 2s forwards;
+    animation-delay: 2s;
+}
+
+/* Primera fase de ocultacion de la intro(logoGtorres, logoDeveloper, logoDivisor). */
+.out-intro2 {
+    animation: out-logo2 1s forwards;
+    animation-delay: 0s;
+    overflow: hidden;
+}
+
+/* Desvanecimiento del contenedor principal de la intro. */
+.out-intro3 {
+    transition: background-color 2s ease;
+    background-color: #282c3400;
+    transition-delay: 2s;
+}
+
+
+/********** Configuracion de los efectos de las imagenes **********/
+
+/* Efecto de parpadeo pa el logoDivisor. */
+@keyframes intermittent {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Efecto de aparicion del logoG */
+@keyframes curtain-logo1 {
+    to   { width: 7rem; }
+}
+
+/* Efecto de aparicion para el logoGtorres y logoDeveloper. */
+@keyframes curtain-logo2 {
+    to   { width: 20.6rem; }
+}
+
+/* Efecto de traslacion y encojimiento para logoG. */
+@keyframes out-logo1 {
+    from {
+        position: relative;
+        top: 0vh;
+        right: 0vw;
+        transform: translate(0%, 0%);
+        opacity: 1;
+    }
+    to {
+        position: relative;
+        top: -50vh;
+        right: 50vw;
+        transform: translate(50%, 50%);
+        scale: 50%;
+        opacity: 0;
+    }
+}
+
+/* Efecto de ocultacion para logoGtorres, logoDeveloper y logoDivisor. */
+@keyframes out-logo2 {
+    from { width: 21rem; }
+    to   { width: 0rem; }
+}
+
+
+/********** Configuracion responsive **********/
+
+/* Configuracion responsive para dispositivos moviles. */
+@media (max-width: 767px) {
+    .subcontainer-logo {
+        gap: 0.1rem;
+    }
+
+	.logoG {
+		width: 3rem;
+        height: 3rem;
+	}
+
+    .logoDivisor {
+        height: 3rem;
+    }
+
+    .logoGtorres {
+        width: 10.3rem;
+        height: 2rem;
+    }
+
+    .logoDeveloper {
+        width: 10.3rem;
+        height: 0.55rem;
+    }
+
+    .display-logoGtorres {
+        height: 2rem;
+    }
+
+    .display-logoDeveloper {
+        height: 2rem;
+    }
+
+    @keyframes curtain-logo1 {
+        to   { width: 4rem; }
+    }
+
+    @keyframes curtain-logo2 {
+        to   { width: 10.3rem; }
+    }
+}
+
+/* Configuracion responsive para tablets. */
+@media (min-width: 768px) and (max-width:1023px) {
+
+}
+
+/* Configuracion responsive gran dimension. */
+@media (min-width: 1023px) {
+
+}
