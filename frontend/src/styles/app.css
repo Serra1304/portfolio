@@ -1,6 +1,23 @@
-body {
+html, body, #root {
 	color: whitesmoke;
-    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    height: 100%;
 }
 
 button {
@@ -65,7 +82,16 @@ button:active {
 @media (min-width: 768px) and (max-width:1023px) {
 }
   
-@media (min-width: 1023px) {
+@media (min-device-width: 1023px) {
+    .app-container {
+        /* min-width: 60rem; */
+        /* min-height: 100%;
+        overflow: hidden; */
+    }
+
+    .background {
+        min-width: 60rem;
+    }
 }
 
 .intro {

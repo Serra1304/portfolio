@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import Background from './assets/images/background'
 import './styles/app.css';
 import Intro from './components/Intro'
-import Home from './containers/Home';
+import Home from './containers/oldHome';
+import BarMenu from './containers/barMenu';
 
 function App() {
   const [cargaFinalizada, setCargaFinalizada] = useState(false);
@@ -22,9 +24,12 @@ function App() {
   }, []);
 
   return (
-    <div>
-        {introFinished ? '' : <Intro loadingFinished={cargaFinalizada} introFinished={intro}/>}
-        <Home />
+    <div className='app-container'>
+      <Background className='background' />
+        {/* {introFinished ? '' : <Intro loadingFinished={cargaFinalizada} introFinished={intro}/>}
+        <Home /> */}
+      <BarMenu />
+      <Home />
     </div>
   );
 }

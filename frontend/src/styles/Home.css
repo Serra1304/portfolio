@@ -1,0 +1,131 @@
+ /* Estios para el contenedor principal de la pagina de inicio. */
+ .home-container {
+    margin: auto;
+}
+
+/* Estilos para el contenido del contenedor principal. */
+.home-content {
+    display: flex;
+	justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+/* Estilos pare el contenedor de los iconos. */
+.icon-container {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+/* Estilos para los iconos. */
+.icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Estilos de las imagenes de iconos. */
+.icon svg {
+    fill: #4ec3e0;
+    transition: transform 0.5s ease;
+}
+
+/* Estilos al entrar el mouse en el icono. */
+.icon:hover svg {
+    fill: #ff5c00;
+    transform: translate(-3px, -3px);
+}
+
+/* Estilos para la imagen principal. */
+.photo {
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+
+/* Estilo para el titulo. */
+.title-home {
+	margin: 0.1rem;
+}
+
+/* Estilo para el subtitulo. */
+.sub-title {
+	font-weight: 200;
+	margin: 0.1rem;
+}
+
+/* Configuracion responsive para dispositivos moviles. */
+@media (max-device-width: 767px) {
+    .home-content {
+        flex-direction: column;
+        padding-top: 4rem;
+    }
+
+    .title-container {
+        width: 17rem;
+    }
+
+    .title-home {
+        font-size: 2rem;
+    }
+
+    .sub-title {
+        font-size: 1.2rem;
+    }
+
+    .photo {
+        width: 18rem;
+        height: 18rem;
+    }
+}
+
+/* Configuracion responsive para tablets. */
+@media (min-device-width: 768px) and (max-device-width:1023px) {
+    .home-content {
+        flex-direction: column;
+        padding-top: 4rem;
+    }
+
+    .title-container {
+        width: 25rem;
+    }
+
+    .title-home {
+        font-size: 3rem;
+    }
+
+    .sub-title {
+        font-size: 1.5rem;
+    }
+    
+    .photo {
+        width: 23rem;
+        height: 23rem;
+    }
+}
+
+/* Configuracion responsive para pantallas grandes. */
+@media (min-device-width: 1023px) {
+    .home-container {
+        margin-top: 0rem;
+    }
+
+    .title-container {
+        width: 32rem;
+    }
+    
+    .title-home {
+        font-size: 4rem;
+    }
+
+    .sub-title {
+        font-size: 1.5rem;
+    }
+
+    .photo {
+        width: 23rem;
+        height: 23rem;
+    }
+} 
