@@ -1,0 +1,68 @@
+/* Estilos para el contenedor principal de contacto. */
+.contact-container {
+    margin: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Estilo para el contenedor del logo. */
+.logo-contact-container {
+    margin: auto;
+    width: 22rem;
+}
+
+/* Estilo para el logo. */
+.logo-contact {
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo para el contenedor de enlaces. */
+.links-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos para los botenes de enlaces. */
+.button {
+    display: flex;
+    max-width: 10rem;
+    width: 100%;
+    margin: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    color: whitesmoke;
+    background: #282c34;
+    border: 2px solid #4ec3e0;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+}
+
+/* Estilos para las imagenes de los botones. */
+.button svg {
+    margin: 0.5rem;
+    height: 2rem;
+    width: auto;
+    fill: #4ec3e0;
+}
+
+/* Configuracion responsive para dispositivos moviles. */
+@media (max-device-width: 767px) {
+
+}
+
+/* Configuracion responsive para tablets. */
+@media (min-device-width: 768px) and (max-device-width:1023px) {
+
+}
+
+/* Configuracion responsive para pantallas grandes. */
+@media (min-device-width: 1023px) {
+    /* Estilos al entrar el mouse en el boton. */
+    .button:hover {
+        box-shadow: 0px 0px 10px 1px #4ec3e0;
+}
+} 

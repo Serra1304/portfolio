@@ -4,28 +4,35 @@ import ImgLogoG from '../assets/images/logo_g'
 import ImgMenu from '../assets/images/menu'
 import '../styles/menu.css';
 
-function BarMenu({ homeRef, aboutMeRef, skillRef, proyectsRef, certificatesRef, contactRef }) {
-  const scrollToComponent = (ref) => {
-    ref?.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-  
+function BarMenu({ onButtonClick }) {
+  const [positionFixed, setPositionFixed] = useState(false);
   const [isDeployed, setDeployed] = useState(false);
   const menuDeployed = () => {
     setDeployed(!isDeployed);
   }
 
+  const handleButtonClick = (ref) => {
+    onButtonClick(ref);
+
+    if (ref === 'homeRef') {
+      setPositionFixed(false);
+    } else {
+      setPositionFixed(true);
+    }
+  };
+
   return (
-    <div className='bar'>
+    <div className={`bar ${positionFixed ? 'position-fixed' : ''}`}>
       <div>
         <ImgLogoG className='logo' />
       </div>
-      <div className={`bar-menu ${isDeployed?'deployed':''}`}>
-        <div className='bar-button from-left' onClick={() => scrollToComponent(homeRef)}>Inicio</div>
-        <div className='bar-button from-left' onClick={() => scrollToComponent(aboutMeRef)}>Sobre mi</div>
-        <div className='bar-button from-left' onClick={() => scrollToComponent(skillRef)}>Skill</div>
-        <div className='bar-button from-left' onClick={() => scrollToComponent(proyectsRef)}>Proyectos</div>
-        <div className='bar-button from-left' onClick={() => scrollToComponent(certificatesRef)}>Certificados</div>
-        <div className='bar-button from-left' onClick={() => scrollToComponent(contactRef)}>Contacto</div>
+      <div className={`bar-menu ${isDeployed?'deployed':''} `}>
+        <div className='bar-button from-left' onClick={() => handleButtonClick('homeRef')}>Inicio</div>
+        <div className='bar-button from-left' onClick={() => handleButtonClick('aboutMeRef')}>Sobre mi</div>
+        <div className='bar-button from-left' onClick={() => handleButtonClick('skillRef')}>Skill</div>
+        <div className='bar-button from-left' onClick={() => handleButtonClick('proyectsRef')}>Proyectos</div>
+        <div className='bar-button from-left' onClick={() => handleButtonClick('certificatesRef')}>Certificados</div>
+        <div className='bar-button from-left' onClick={() => handleButtonClick('contactRef')}>Contacto</div>
       </div>
       <div className='button-menu' onClick={menuDeployed}>
         <ImgMenu className='icon-menu' />
