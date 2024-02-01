@@ -1,0 +1,72 @@
+/* Estilo para el contenedor principal para la seccion aboutMe. */
+.aboutMe-container {
+  display: flex;
+  margin: auto;
+  max-width: 70rem;
+  min-width: 60rem;
+  background-color: #282c34cc;
+  box-shadow: 0px 0px 10px 1px #282c34cc;
+}
+
+/* Estilo para la imagen de sa seccion. */
+.foto {
+  padding: 1rem;
+	width: 23rem;
+  height: 23rem;
+}
+
+/* Estilo para el contenedor del campo de texto. */
+.container-text {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+/* Estilo para el texto. */
+.text {
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  text-align: justify;
+}
+
+/* Configuracion responsive para dispositivos de pantallas pequeñas. */
+@media (max-device-width: 767px) {
+  .aboutMe-container {
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .foto {
+    display: flex;
+    margin: auto;
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+}
+
+/* Configuracion responsive para dispositivos de pantallas medianas. */
+@media (min-device-width: 768px) and (max-device-width:1023px) {
+  .aboutMe-container {
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .foto {
+    display: flex;
+    margin: auto;
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .text {
+    font-size: 1.2em;
+  }
+}
+
+/* Configuracion responsive para dispositivos de pantallas grandes */
+@media (min-device-width: 1023px) {
+}

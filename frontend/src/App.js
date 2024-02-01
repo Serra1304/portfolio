@@ -5,6 +5,7 @@ import Intro from './components/Intro'
 import Home from './containers/Home';
 import Contact from './containers/Contact'
 import BarMenu from './containers/barMenu';
+import AboutMe from './containers/AboutMe';
 
 function App() {
   const [cargaFinalizada, setCargaFinalizada] = useState(false);
@@ -34,7 +35,9 @@ function App() {
     const renderVisibleComponent = () => {
       switch (visibleComponent) {
         case 'homeRef':
-          return <Home />;
+          return <Home onButtonClick={handleButtonClick} />;
+        case 'aboutMeRef':
+          return <AboutMe onButtonClick={handleButtonClick} />
         case 'contactRef':
           return <Contact />;
         default:
