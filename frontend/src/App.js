@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Background from './assets/images/background'
 import './styles/app.css';
 import Intro from './components/Intro'
-import Home from './containers/Home';
-import Contact from './containers/Contact'
 import BarMenu from './containers/barMenu';
+import Home from './containers/Home';
+import Skill from './containers/Skill'
+import Contact from './containers/Contact'
 import AboutMe from './containers/AboutMe';
+import ImageService from './service/assets/ImageLoadService';
 
 function App() {
   const [cargaFinalizada, setCargaFinalizada] = useState(false);
@@ -30,7 +32,20 @@ function App() {
     const handleButtonClick = (componentName) => {
       setVisibleComponent(componentName);
     };
-  
+
+    // Precarga de imagenes (prueba con imagenes del contenedor skill)
+    const[images, setImages] = useState([])
+
+    useEffect(() => {
+      const fetchImages = async () => {
+        const imageService = new ImageService();
+        const loadedImages = await imageService.fetchSkills();
+        setImages(loadedImages);
+    };
+
+    fetchImages(); 
+    }, []);
+
     // Función para renderizar el componente actualmente visible
     const renderVisibleComponent = () => {
       switch (visibleComponent) {
@@ -38,6 +53,8 @@ function App() {
           return <Home onButtonClick={handleButtonClick} />;
         case 'aboutMeRef':
           return <AboutMe onButtonClick={handleButtonClick} />
+        case 'skillRef':
+          return <Skill images={images}/>
         case 'contactRef':
           return <Contact />;
         default:

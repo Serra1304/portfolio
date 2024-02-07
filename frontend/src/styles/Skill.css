@@ -1,0 +1,41 @@
+/* Estilo del contenedor principal de la seccion skill */
+.skill-container {
+    display: flex;
+    margin: auto;
+}
+
+/* Estilo para el contenido del contenedor principal */
+.skill-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/* Estilo para las imagenes */
+.skill-image {
+    width: 5rem;
+    height: 5rem;
+    margin: 2rem;
+    padding: 0.2rem;
+    background-color: whitesmoke;
+    border-radius: 0.5rem;
+}
+
+/* Configuracion responsive para los dispositivos de pantallas pequeñas */
+@media (max-device-width: 767px) {
+}
+
+/* Configuracion responsive para dispositivos de pantallas medianas */
+@media (min-device-width: 768px) and (max-device-width:1023px) {
+}
+
+/* Configuracion responsive para dispositivos de pantallas grandes */
+@media (min-device-width: 1023px) {
+    .skill-content {
+        max-width: 70rem;
+        min-width: 60rem;
+    }
+}
