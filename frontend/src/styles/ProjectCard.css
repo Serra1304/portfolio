@@ -1,3 +1,4 @@
+/* Estilos para la tarjeta de proyectos. */
 .project-card {
     display: flex;
     flex-direction: column;
@@ -11,24 +12,20 @@
     transition: transform 0.3s ease;
 }
 
-.project-card:hover{
-	box-shadow: 0px 0px 10px 1px #4ec3e0;
-    cursor: pointer;
-    transform: translateY(-4px) translateX(-2px);
-}
-
+/* Estilos para las imagenes de la tarjeta de proyectos. */
 .project-card img {
     height: 10rem;
     border-radius: 1rem;
     border: 2px solid #4ec3e0;
 }
 
-
+/* Estilos para el titulo de la tarjeta. */
 .project-card h2 {
     text-align: center;
     color: #4ec3e0;
 }
 
+/* Estilos para la descripcion de la tarjeta. */
 .project-card p {
     display: block;
     display: -webkit-box;
@@ -37,4 +34,19 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* Configuracion responsive para dispositivos de pantallas pequeñas. */
+@media (max-device-width: 767px) {}
+
+/* Configuracion responsive para dispositivos de pantallas medianas. */
+@media (min-device-width: 768px) and (max-device-width:1023px) {}
+
+/* Configuracion responsive para dispositivos de pantallas grandes. */
+@media (min-device-width: 1023px) {
+    .project-card:hover{
+        box-shadow: 0px 0px 10px 1px #4ec3e0;
+        cursor: pointer;
+        transform: translateY(-4px) translateX(-2px);
+    }
 }

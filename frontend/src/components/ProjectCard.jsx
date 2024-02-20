@@ -11,7 +11,7 @@ import '../styles/ProjectCard.css';
  * @param {function} onClick - Función opcional a ejecutar al hacer clic en la tarjeta.
  * @returns {JSX.Element} - Elemento JSX que representa la tarjeta del proyecto.
  */
-const ProjectCard = ({title, description, imageSrc, onClick }) => {
+const ProjectCard = ({title, description, image, onClick }) => {
 
   /**
    * Maneja el click en la tarjeta del proyecto y ejecuta la función proporcionada (si existe).
@@ -24,7 +24,7 @@ const ProjectCard = ({title, description, imageSrc, onClick }) => {
 
   return (
     <div className="project-card" data-testid="project-card" onClick={handleClick}>
-      <img src={imageSrc} alt={title} />
+      <img src={image.src} alt={title} />
       <h2>{title}</h2>
       <p dangerouslySetInnerHTML={{ __html: description }} />
     </div>

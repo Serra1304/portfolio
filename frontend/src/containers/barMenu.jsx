@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import LogoMinColor from '../assets/images/logoMinColor';
 import ImgLogoG from '../assets/images/logo_g'
 import ImgMenu from '../assets/images/menu'
 import '../styles/menu.css';
@@ -30,7 +29,7 @@ function BarMenu({ onButtonClick }) {
         <div className='bar-button from-left' onClick={() => handleButtonClick('homeRef')}>Inicio</div>
         <div className='bar-button from-left' onClick={() => handleButtonClick('aboutMeRef')}>Sobre mi</div>
         <div className='bar-button from-left' onClick={() => handleButtonClick('skillRef')}>Skill</div>
-        <div className='bar-button from-left' onClick={() => handleButtonClick('proyectsRef')}>Proyectos</div>
+        <div className='bar-button from-left' onClick={() => handleButtonClick('projectRef')}>Proyectos</div>
         <div className='bar-button from-left' onClick={() => handleButtonClick('certificatesRef')}>Certificados</div>
         <div className='bar-button from-left' onClick={() => handleButtonClick('contactRef')}>Contacto</div>
       </div>

@@ -4,10 +4,11 @@ import './styles/app.css';
 import Intro from './components/Intro'
 import BarMenu from './containers/barMenu';
 import Home from './containers/Home';
-import Skill from './containers/Skill'
-import Contact from './containers/Contact'
+import Skill from './containers/Skill';
+import Contact from './containers/Contact';
 import AboutMe from './containers/AboutMe';
-import ImageService from './service/assets/ImageLoadService';
+import Project from './containers/Projects';
+import ImageService from './service/assets/PreloadService';
 
 function App() {
   const [cargaFinalizada, setCargaFinalizada] = useState(false);
@@ -28,23 +29,31 @@ function App() {
     return () => clearTimeout(tiempoCarga);
   }, []);
 
+  // FIXME: Precarga de datos (Seccion en pruebas)
+  const[images, setImages] = useState([]);
+  const[projects, setProjets] = useState([]);
+
+
+  //TODO refactorizar fetch.
+  useEffect(() => {
+    const fetchImages = async () => {
+      const imageService = new ImageService();
+      setImages(await imageService.loadSkills());
+    };
+
+    const fetchProject = async () => {
+      const project = new ImageService();
+      setProjets(await project.loadProjects());
+    };
+ 
+    fetchImages();
+    fetchProject();
+  }, []);
+
     // Función para cambiar el componente visible
     const handleButtonClick = (componentName) => {
       setVisibleComponent(componentName);
     };
-
-    // Precarga de imagenes (prueba con imagenes del contenedor skill)
-    const[images, setImages] = useState([])
-
-    useEffect(() => {
-      const fetchImages = async () => {
-        const imageService = new ImageService();
-        const loadedImages = await imageService.fetchSkills();
-        setImages(loadedImages);
-    };
-
-    fetchImages(); 
-    }, []);
 
     // Función para renderizar el componente actualmente visible
     const renderVisibleComponent = () => {
@@ -55,6 +64,8 @@ function App() {
           return <AboutMe onButtonClick={handleButtonClick} />
         case 'skillRef':
           return <Skill images={images}/>
+        case 'projectRef':
+          return <Project data={projects}/>
         case 'contactRef':
           return <Contact />;
         default:

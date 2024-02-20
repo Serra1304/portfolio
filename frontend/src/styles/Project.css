@@ -1,0 +1,32 @@
+/* Estilos generales para el contenedor de proyectos. */
+.project-container {
+    display: flex;
+    margin: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Estilos para el contenido de los proyectos. */
+.project-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: #282c34aa;
+    box-shadow: 0px 0px 10px 1px #282c34cc;
+}
+
+/* Configuracion responsive para dispositivos de pantallas pequeñas. */
+@media (max-device-width: 767px) {}
+
+/* Configuracion responsive para dispositivos de pantallas medianas. */
+@media (min-device-width: 768px) and (max-device-width:1023px) {}
+
+/* Configuracion responsive para dispositivos de pantallas grandes. */
+@media (min-device-width: 1023px) {
+    .project-container {
+        max-width: 70rem;
+        min-width: 60rem;
+    }
+}
