@@ -1,0 +1,28 @@
+/* Estilos para el contenedor principal de certificados. */
+.certificates-container {
+	display: flex;
+	margin: auto;
+}
+
+/* Estilos para el contenido del contenedor de certificados. */
+.certificates-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/* Configuracion responsive para dispositivos de pantallas pequeñas. */
+@media (max-device-width: 767px) {}
+
+/* Configuracion responsive para dispositivos de pantallas medianas. */
+@media (min-device-width: 768px) and (max-device-width:1023px) {}
+
+/* Configuracion responsive para dispositivos de pantallas grandes. */
+@media (min-device-width: 1023px) {
+	.certificates-content {
+		max-width: 70rem;
+		min-width: 60rem;
+	}
+}

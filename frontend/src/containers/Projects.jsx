@@ -64,7 +64,7 @@ Projects.propTypes = {
             key: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
-            imagesSrc: PropTypes.arrayOf(PropTypes.string).isRequired,
+            imagesSrc: PropTypes.arrayOf(PropTypes.object).isRequired,
         })
     ).isRequired,
 };

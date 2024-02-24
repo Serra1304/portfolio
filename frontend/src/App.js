@@ -8,6 +8,7 @@ import Skill from './containers/Skill';
 import Contact from './containers/Contact';
 import AboutMe from './containers/AboutMe';
 import Project from './containers/Projects';
+import Certificates from './containers/Certificates';
 import ImageService from './service/assets/PreloadService';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
   // FIXME: Precarga de datos (Seccion en pruebas)
   const[images, setImages] = useState([]);
   const[projects, setProjets] = useState([]);
+  const[certificates, setCertificates] = useState([]);
 
 
   //TODO refactorizar fetch.
@@ -45,9 +47,15 @@ function App() {
       const project = new ImageService();
       setProjets(await project.loadProjects());
     };
+
+    const fetchCertificates = async () => {
+      const certificate = new ImageService();
+      setCertificates(await certificate.loadCertificates());
+    };
  
     fetchImages();
     fetchProject();
+    fetchCertificates();
   }, []);
 
     // Función para cambiar el componente visible
@@ -66,6 +74,8 @@ function App() {
           return <Skill images={images}/>
         case 'projectRef':
           return <Project data={projects}/>
+        case 'certificatesRef':
+          return <Certificates data={certificates} />
         case 'contactRef':
           return <Contact />;
         default:

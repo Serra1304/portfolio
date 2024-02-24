@@ -1,5 +1,6 @@
 import authToApi from '../auth/authService.js'
 import Project from '../../models/project.class.js';
+import Certificate from '../../models/certificate.class.js';
 
 /**
  * Servicio para pre-cargar los datos de los distintos componentes en la memoria del navegador.
@@ -29,7 +30,7 @@ class PreloadService {
     }
 
     /**
-     * Obtiene los proyectos desde la API y pre-carga las imágenes asociadas.
+     * Obtiene los proyectos desde la API y pre-carga los datos en una instancia de proyectos.
      * @returns {Promise<Project[]>} Un array de instancias de proyectos pre-cargados.
      */
     async loadProjects() {
@@ -46,12 +47,38 @@ class PreloadService {
                     projectData.description,
                     this.loadImages(projectData.imagesList),
                     projectData.skill
-                )
+                );
                 loadedProjects.push(project);
             }
             return loadedProjects;
         }
         return [];
+    }
+
+    /**
+     * Obtiene los certificados desde la API y pre-carga los datos en una instancia de certificados.
+     * @returns {Promise<Project[]>} Un array de instancias de certificados pre-cargados.
+     */
+    async loadCertificates() {
+        const apiCertificateFindAll = process.env.REACT_APP_API_CERTIFICATE_FINDALL;
+        const data = await this.fetchData(apiCertificateFindAll);
+
+        if (Array.isArray(data)) {
+            const loadedCertificates = [];
+
+            for (const certificateData of data) {
+                const certificate = new Certificate(
+                    certificateData.id,
+                    certificateData.description,
+                    certificateData.date,
+                    certificateData.imageUrl,
+                    certificateData.certUrl
+
+                );
+                loadedCertificates.push(certificate);
+            }
+            return loadedCertificates;
+        }
     }
 
     /**
