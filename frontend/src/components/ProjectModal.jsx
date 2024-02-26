@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/ProjectModal.css';
+import '../styles/components/ProjectModal.css';
 
 /**
  * Componente de ventana modal para mostrar detalles de un proyecto.

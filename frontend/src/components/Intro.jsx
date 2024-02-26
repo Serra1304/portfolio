@@ -3,7 +3,7 @@ import ImgLogoG from '../assets/images/logo_g'
 import ImgLogoDivisor from '../assets/images/logo_divisor'
 import ImgLogoGtorres from '../assets/images/logo_gtorres'
 import ImgLogoDeveloper from '../assets/images/logo_developer'
-import '../styles/Intro.css'
+import '../styles/components/Intro.css'
 
 
 /**
@@ -79,6 +79,7 @@ function IntroAnimation({ loadingFinished, introFinished }) {
                         <div className='subcontainer-logo'>
                             <div className='display-logoGtorres'><ImgLogoGtorres className='logoGtorres'/></div>
                             <div className='display-logoDeveloper'><ImgLogoDeveloper className='logoDeveloper'/></div>
+                            <div className={`loading display-loading ${showLogoOut ? 'out-loading' : ''}`}>Loading ...</div>
                        </div>
                    </div>
                </div>}

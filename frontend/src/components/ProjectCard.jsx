@@ -1,17 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/ProjectCard.css';
+import '../styles/components/ProjectCard.css';
 
 /**
- * Componente ProjectCard
- * Representa una tarjeta de proyecto con título, descripción e imagen.
- * @param {string} title - El título del proyecto.
- * @param {string} description - La descripción del proyecto (se acepta HTML).
- * @param {string} imageSrc - La ruta de la imagen del proyecto.
- * @param {function} onClick - Función opcional a ejecutar al hacer clic en la tarjeta.
- * @returns {JSX.Element} - Elemento JSX que representa la tarjeta del proyecto.
+ * Componente para representar visualmente un proyecto en una tarjeta.
+ * 
+ * Muestra una imagen, título y descripción del proyecto.
+ * 
+ * @component
+ * 
+ * @param {object} project - Objeto que representa los datos del proyecto.
+ * @param {string} project.title - Título del proyecto.
+ * @param {string} project.description - Descripción del proyecto (puede contener HTML).
+ * @param {object[]} project.imagesSrc - Array de objetos que contienen información de las imágenes del proyecto.
+ * @param {function} onClick - Función que se ejecuta cuando se hace clic en la tarjeta del proyecto.
+ * 
+ * @returns {JSX.Element} Componente de tarjeta de proyecto.
  */
-const ProjectCard = ({title, description, image, onClick }) => {
+const ProjectCard = ({project, onClick }) => {
 
   /**
    * Maneja el click en la tarjeta del proyecto y ejecuta la función proporcionada (si existe).
@@ -24,17 +30,23 @@ const ProjectCard = ({title, description, image, onClick }) => {
 
   return (
     <div className="project-card" data-testid="project-card" onClick={handleClick}>
-      <img src={image.src} alt={title} />
-      <h2>{title}</h2>
-      <p dangerouslySetInnerHTML={{ __html: description }} />
+      <img src={project.imagesSrc[0].src} alt={project.title} />
+      <h2>{project.title}</h2>
+      <p dangerouslySetInnerHTML={{ __html: project.description }} />
     </div>
   );
 };
 
 ProjectCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string.isRequired,
+  project: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imagesSrc: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
   onClick: PropTypes.func,
 };
 

@@ -4,10 +4,10 @@ import ImgLinkedin from '../assets/images/linkedin'
 import ImgGithub from '../assets/images/github'
 import ImgMail from '../assets/images/mail'
 import Photo from '../assets/images/foto.jpg'
-import '../styles/Home.css'
+import '../styles/containers/Home.css'
 
 /**
- * Componente newHome
+ * Componente Home
  * 
  * Este componente representa la página de inicio de la aplicación.
  * Proporciona información básica sobre el desarrollador y enlaces a perfiles sociales.

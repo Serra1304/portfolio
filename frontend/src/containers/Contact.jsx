@@ -3,7 +3,7 @@ import Formulario from '../form/ContactForm'
 import Logo from '../assets/images/logo'
 import Linkedin from '../assets/images/linkedin'
 import Github from '../assets/images/github'
-import '../styles/Contact.css'
+import '../styles/containers/Contact.css'
 
 /**
  * Componente Contact

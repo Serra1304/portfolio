@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import foto from '../assets/images/avatar.png'
-import '../styles/AboutMe.css'
+import '../styles/containers/AboutMe.css'
 
 /**
  * Componente AboutMe

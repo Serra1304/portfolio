@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import CertificateCard from '../components/CertificateCard';
-import '../styles/Certificates.css'
+import '../styles/containers/Certificates.css'
 
 /**
  * Componente para mostrar una lista de certificados.
@@ -25,10 +25,7 @@ function Certificates({ data }) {
                 {data.map((certificate) => (
                     <CertificateCard
                         key={certificate.key}
-                        imageUrl={certificate.imageUrl}
-                        description={certificate.description}
-                        date={certificate.date}
-                        certUrl={certificate.certUrl}
+                        certificate={certificate}
                     />
                 ))}
             </div>

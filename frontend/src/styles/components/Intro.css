@@ -1,7 +1,6 @@
-
 /********** Configuracion de los contenedores **********/
 
-/* Contenedor principal de la intro.  */
+/* Estilos del contenedor principal de la intro.  */
 .container-intro {
     position: fixed;
     top: 50%;
@@ -16,13 +15,13 @@
     z-Index: 1000;
 }
 
-/* Contenedor principal del logo. */
+/* Estilos del contenedor principal del logo. */
 .container-logo {
     display: flex;
     flex-direction: row;
 }
 
-/* Subcontenedor del logo */
+/* Estilos del subcontenedor del logo. */
 .subcontainer-logo {
     display: flex;
     flex-direction: column;
@@ -35,32 +34,37 @@
 
 /********** Configuracion de las imagenes **********/
 
-/* Propiedades del logoG */
+/* Estilos de logoG */
 .logoG {
     width: 6rem;
     height: 6rem;
 }
 
-/* Propiedades del logoDivisor */
+/* Estilos de logoDivisor */
 .logoDivisor {
     height: 6rem;
 }
 
-/* Propiedades del logoGtorres */
+/* Estilos de logoGtorres */
 .logoGtorres {
     width: 20.6rem;
     height: 4rem;
 }
 
-/* Despliegue de logoDeveloper. */
+/* Estilos de logoDeveloper. */
 .logoDeveloper {
     width: 20.6rem;
+}
+
+/* Estilos de loading */
+.loading {
+    padding: 1rem;
 }
 
 
 /********** Configuracion de las distintas entradas de las imagenes **********/
 
-/* Despliegue de logoG. */
+/* Estilos para la aparicion de logoG. */
 .display-logoG {
     width: 0rem;
     height: 6rem;
@@ -69,7 +73,7 @@
     overflow: hidden;
 }
 
-/* Despliegue de logoDivisor. */
+/* Estilos para la aparicion de logoDivisor. */
 .display-logoDivisor {
     width: 0.2rem;
     min-width: 0.2rem;
@@ -78,7 +82,7 @@
     overflow: hidden;
 }
 
-/* Despliegue de logoGtorres. */
+/* Estilos para la aparicion de logoGtorres. */
 .display-logoGtorres {
     width: 0rem;
     height: 4rem;
@@ -87,7 +91,7 @@
     overflow: hidden;
 }
 
-/* Despliegue de logoDeveloper. */
+/* Estilos para la aparicion de logoDeveloper. */
 .display-logoDeveloper {
     width: 0px;
     animation: curtain-logo2 1s forwards;
@@ -95,27 +99,42 @@
     overflow: hidden;
 }
 
+/* Estilos para la aparicion de loading */
+.display-loading {
+    width: auto;
+    opacity: 0;
+    overflow: hidden;
+    animation: loading 0.1s forwards;
+    animation-delay: 8s;
+}
+
 
 /********** Configuracion de las distintas salidas de las imagenes **********/
 
-/* Segunda fase de ocultacion de la intro(logoG). */
+/* Estilos para la ocultacion de la intro(logoG). */
 .out-intro1 {
     animation: out-logo1 2s forwards;
     animation-delay: 2s;
 }
 
-/* Primera fase de ocultacion de la intro(logoGtorres, logoDeveloper, logoDivisor). */
+/* Estilos para la ocultacion de la intro(logoGtorres, logoDeveloper, logoDivisor). */
 .out-intro2 {
     animation: out-logo2 1s forwards;
     animation-delay: 0s;
     overflow: hidden;
 }
 
-/* Desvanecimiento del contenedor principal de la intro. */
+/* Estilos para el desvanecimiento del contenedor principal de la intro. */
 .out-intro3 {
     transition: background-color 2s ease;
     background-color: #282c3400;
     transition-delay: 2s;
+}
+
+/* Estilos para la ocultacion de loading */
+.out-loading {
+    animation: out-loading 0s forwards;
+    animation-delay: 0s;
 }
 
 
@@ -123,19 +142,42 @@
 
 /* Efecto de parpadeo pa el logoDivisor. */
 @keyframes intermittent {
-    0%   { opacity: 1; }
-    50%  { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Efecto de aparicion del logoG */
 @keyframes curtain-logo1 {
-    to   { width: 7rem; }
+    to {
+        width: 7rem;
+    }
 }
 
 /* Efecto de aparicion para el logoGtorres y logoDeveloper. */
 @keyframes curtain-logo2 {
-    to   { width: 20.6rem; }
+    to {
+        width: 20.6rem;
+    }
+}
+
+/* Efecto de aparicion de loading. */
+@keyframes loading {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Efecto de traslacion y encojimiento para logoG. */
@@ -147,6 +189,7 @@
         transform: translate(0%, 0%);
         opacity: 1;
     }
+
     to {
         position: relative;
         top: -50vh;
@@ -159,23 +202,39 @@
 
 /* Efecto de ocultacion para logoGtorres, logoDeveloper y logoDivisor. */
 @keyframes out-logo2 {
-    from { width: 21rem; }
-    to   { width: 0rem; }
+    from {
+        width: 20.6rem;
+    }
+
+    to {
+        width: 0rem;
+    }
+}
+
+/* Efecto de ocultacion de loading */
+@keyframes out-loading {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 
 /********** Configuracion responsive **********/
 
-/* Configuracion responsive para dispositivos moviles. */
-@media (max-width: 767px) {
+/* Configuracion responsive para dispositivos de pantallas pequeñas. */
+@media (max-device-width: 767px) {
     .subcontainer-logo {
         gap: 0.1rem;
     }
 
-	.logoG {
-		width: 3rem;
+    .logoG {
+        width: 3rem;
         height: 3rem;
-	}
+    }
 
     .logoDivisor {
         height: 3rem;
@@ -200,20 +259,30 @@
     }
 
     @keyframes curtain-logo1 {
-        to   { width: 4rem; }
+        to {
+            width: 4rem;
+        }
     }
 
     @keyframes curtain-logo2 {
-        to   { width: 10.3rem; }
+        to {
+            width: 10.3rem;
+        }
+    }
+
+    @keyframes out-logo2 {
+        from {
+            width: 10.3rem;
+        }
+    
+        to {
+            width: 0rem;
+        }
     }
 }
 
-/* Configuracion responsive para tablets. */
-@media (min-width: 768px) and (max-width:1023px) {
+/* Configuracion responsive para dispositivos de pantallas medianas. */
+@media (min-device-width: 768px) and (max-device-width:1023px) {}
 
-}
-
-/* Configuracion responsive gran dimension. */
-@media (min-width: 1023px) {
-
-}
+/* Configuracion responsive para dispositivos de pantallas grandes. */
+@media (min-device-width: 1023px) {}

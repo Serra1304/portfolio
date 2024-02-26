@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik'
 import axios from 'axios';
-import '../styles/ContactForm.css'
+import '../styles/form/ContactForm.css'
 
 /**
  * Componente ContactForm
