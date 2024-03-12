@@ -112,6 +112,10 @@ public class Project {
         this.imagesList = imagesList;
     }
 
+    /**
+     * Metodo toString que devuelve información sobre el proyecto.
+     * @return Una cadena de texto con información del proyecto.
+     */
     @Override
     public String toString() {
         return "Project [id=" + id + ", title=" + title + ", description=" + description + ", skills=" + skillList +
