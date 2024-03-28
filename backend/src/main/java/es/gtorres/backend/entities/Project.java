@@ -1,5 +1,7 @@
 package es.gtorres.backend.entities;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,9 +16,17 @@ public class Project {
 
     @Id
     private String id;
+
+    @NotBlank
     private String title;
+
+    @NotBlank
     private String description;
+
+    @NotEmpty
     private List<String> skillList;
+
+    @NotEmpty
     private List<String> imagesList;
 
     /**
